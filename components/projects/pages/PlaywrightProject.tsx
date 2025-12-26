@@ -1,12 +1,10 @@
 import React, { useEffect } from 'react';
-import { PROJECTS } from '@/constants';
 
-interface KubernetesProjectProps {
+interface PlaywrightProjectProps {
   onBack: () => void;
 }
 
-const KubernetesProject: React.FC<KubernetesProjectProps> = ({ onBack }) => {
-  const project = PROJECTS.find(p => p.id === 'p1');
+const PlaywrightProject: React.FC<PlaywrightProjectProps> = ({ onBack }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -27,10 +25,10 @@ const KubernetesProject: React.FC<KubernetesProjectProps> = ({ onBack }) => {
           {/* Header */}
           <header className="mb-10">
             <h1 className="text-3xl md:text-5xl font-semibold tracking-tighter text-apple-dark leading-[1.1] mb-6">
-              {project?.title}
+              Interactive Apache Spark Environment with Livy and Jupyter Notebook
             </h1>
             <p className="text-m md:text-m text-apple-subtext leading-relaxed font-light italic mb-8">
-              Many modern data platforms rely on Kafka to move events between services in real time. As traffic grows or becomes bursty, Kafka consumers can easily fall behind, creating backlogs that impact downstream systems. Traffic spikes, uneven partitions, and slow downstream services can quickly lead to growing consumer lag. In this article, we will walk through a practical example of autoscaling Kafka consumers on Kubernetes using KEDA and consumer lag. We will deploy the Confluent Platform, simulate producer pressure, observe consumer lag, and watch KEDA scale our consumers dynamically. The result is an architecture that scales efficiently, responds directly to streaming demand.
+              Working with large datasets often requires both distributed processing power and an interactive development environment. This project sets up a containerized Spark cluster with one master node and multiple worker nodes, allowing you to scale processing across machines. It includes Apache Livy, which provides a REST API for submitting Spark jobs, and Jupyter Notebook, which offers a user-friendly interface for writing and running code. This setup makes it easier to work with Spark by providing a flexible and reproducible environment for data exploration, workflow testing, and distributed application development.
             </p>
 
             {/* Author / Metadata Row */}
@@ -40,7 +38,7 @@ const KubernetesProject: React.FC<KubernetesProjectProps> = ({ onBack }) => {
                </div>
               <div className="flex flex-col">
                  <span className="text-sm font-medium text-apple-dark">Son Nguyen</span>
-                 <span className="text-sm text-apple-subtext">Dec 2025 · 7 min read</span>
+                 <span className="text-sm text-apple-subtext">Jul 2025 · 7 min read</span>
               </div>
             </div>
           </header>
@@ -49,8 +47,8 @@ const KubernetesProject: React.FC<KubernetesProjectProps> = ({ onBack }) => {
           <figure className="mb-10">
             <div className="aspect-video overflow-hidden relative">
                <img 
-                src="./projects/kubernetes/logo.png" 
-                alt="Confluent for Kubernetes and KEDA" 
+                src="./projects/spark/logo.png" 
+                alt="Apache Spark" 
                 className="w-full object-cover"
               />
             </div>
@@ -62,28 +60,28 @@ const KubernetesProject: React.FC<KubernetesProjectProps> = ({ onBack }) => {
             <section>
               <h2 className="text-2xl font-semibold text-apple-dark mb-8 tracking-tight">Components Overview</h2>
               <p className="text-m leading-8 text-apple-dark mb-8">
-                <b>Confluent for Kubernetes</b> is a Kubernetes-native platform for deploying and operating Apache Kafka and its ecosystem in a consistent, production-ready manner. It is built around the Confluent Operator, which manages the full lifecycle of Kafka components, including:
-                <ul className="list-disc list-inside mt-4">
-                  <li>Kafka brokers and controllers</li>
-                  <li>ZooKeeper or KRaft-based metadata management</li>
-                  <li>Control Center</li>
-                  <li>(Optional) Schema Registry, Kafka Connect, ksqlDB and REST Proxy</li>
-                </ul>
+              The architecture consists of a Spark master node that coordinates tasks and manages cluster resources, along with one or more worker nodes that execute the distributed computations. Apache Livy serves as a REST interface to submit and manage Spark jobs remotely, while the Jupyter Notebook server can act as the development front end or be connected to a preferred IDE such as VS Code.
               </p>
+              <figure className="mb-8">
+                <div className="bg-apple-gray overflow-hidden relative">
+                  <img 
+                    src="./projects/spark/fig1.png" 
+                    alt="EcoStream Dashboard" 
+                    className="w-full object-cover"
+                  />
+                </div>
+                <figcaption className="text-center text-xs font-medium text-apple-subtext mt-4">
+                  Figure 1: Project Architecture
+                </figcaption>
+              </figure>
               <p className="text-m leading-8 text-apple-dark mb-8">
-                <b>KEDA</b> is an open-source component that extends Kubernetes autoscaling capabilities beyond CPU and memory metrics. It enables workloads to scale based on event sources such as message queues, streams, or external systems. For Kafka workloads, KEDA can monitor consumer group lag and expose it as an external metric to Kubernetes. This makes Kafka-aware autoscaling possible without embedding scaling logic directly into application code.
-              </p>
-              <p className="text-m leading-8 text-apple-dark mb-8">
-                While Kubernetes users may already be familiar with autoscaling mechanisms such as the Horizontal Pod Autoscaler (HPA) or Vertical Pod Autoscaler (VPA), these tools traditionally rely on CPU and memory utilization to trigger scaling decisions. Although this can work for many stateless services, Kafka consumers behave differently. A consumer group may appear underutilized from a resource perspective while still falling behind due to increased message volume or uneven partition load.
-              </p>
-              <p className="text-m leading-8 text-apple-dark mb-8">
-                Consumer lag provides a more accurate signal for Kafka workloads. Lag represents the number of messages that have been produced to Kafka but not yet processed by a consumer group. When producers publish messages faster than consumers can handle them, backlog accumulates and lag grows. By using lag as a scaling indicator, KEDA integrates with the Kubernetes HPA to scale consumer replicas in response to real streaming pressure, ensuring that consumption throughput keeps pace with production rates.
+              Functionally, this setup resembles cloud-based platforms like AWS EMR (Elastic MapReduce) or Databricks. AWS EMR is a cloud service for running big data frameworks like Spark and Hadoop, integration with AWS tools, and EMR Notebooks for interactive Spark development. Databricks is a unified advenced analytics platform built on Spark, also providing Databricks Notebooks to write and run code, visualize data, collaborate in real time, and manage Spark jobs in cloud-based environment. This project setup offers similar core capabilities, with interactive notebooks (via Jupyter), distributed Spark processing, and job submission through Apache Livy, making it a lightweight open-source alternative to these managed platforms.
               </p>
             </section>
 
             <div className="mt-auto flex items-center text-l font-bold text-apple-dark group-hover:text-apple-blue transition-colors">
               <a 
-                href={project?.url}
+                href="https://medium.com/@ncsonn/interactive-apache-spark-environment-with-livy-and-jupyter-notebook-15937e00d763"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group flex items-center justify-between py-5 border-b border-white/10 hover:border-white/30 transition-all"
@@ -111,6 +109,9 @@ const KubernetesProject: React.FC<KubernetesProjectProps> = ({ onBack }) => {
              <button onClick={onBack} className="text-apple-subtext hover:text-apple-dark font-medium text-sm transition-colors flex items-center">
                <span className="mr-2">←</span> Back
              </button>
+             <div className="flex gap-6">
+               <a href="https://github.com/ncsonn/spark-server" target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-apple-blue hover:text-blue-700 underline-offset-4 hover:underline">GitHub Repository</a>
+             </div>
           </div>
 
         </article>
@@ -119,4 +120,4 @@ const KubernetesProject: React.FC<KubernetesProjectProps> = ({ onBack }) => {
   );
 };
 
-export default KubernetesProject;
+export default PlaywrightProject;

@@ -21,7 +21,7 @@ const Experience: React.FC = () => {
               </div>
               {/* Bio - No Title, Single Paragraph */}
               <div className="space-y-4">
-                <p className="text-apple-subtext text-m leading-relaxed font-light">
+                <p className="text-apple-subtext text-m leading-relaxed font-regular italic">
                   {RESUME_DATA.about}
                 </p>
               </div>

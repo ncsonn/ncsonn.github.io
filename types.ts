@@ -5,7 +5,8 @@ export interface Project {
   description: string;
   tech: string[];
   link?: string;
-  imagePlaceholder?: string; // Dimensions for picsum
+  imagePlaceholder?: string;
+  url: string;
 }
 
 export interface Experience {

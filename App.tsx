@@ -6,13 +6,15 @@ import Experience from './components/Experience';
 import Skills from './components/Skills';
 import Footer from './components/Footer';
 import ContactForm from './components/ContactForm';
-import EcoStreamProject from './components/projects/pages/EcoStreamProject';
-import SparkProject from './components/projects/pages/SparkProject';
 import KubernetesProject from './components/projects/pages/KubernetesProject';
+import SparkProject from './components/projects/pages/SparkProject';
+import ElasticProject from './components/projects/pages/ElasticProject';
+import PlaywrightProject from './components/projects/pages/PlaywrightProject';
+import AirflowProject from './components/projects/pages/AirflowProject';
 import AllProjects from './components/projects/pages/AllProjects';
 
 // Define available views
-type View = 'home' | 'all-projects' | 'project-p1' | 'project-p2' | 'project-p3' | 'project-p4';
+type View = 'home' | 'all-projects' | 'project-p1' | 'project-p2' | 'project-p3' | 'project-p4' | 'project-p5';
 
 const App: React.FC = () => {
   const [currentView, setCurrentView] = useState<View>('home');
@@ -53,18 +55,7 @@ const App: React.FC = () => {
 
   // Handle navigation to details
   const navigateToProject = (id: string) => {
-    if (id === 'p1') {
-      changeView('project-p1');
-    } else if (id === 'p2') {
-      changeView('project-p2');
-    } else if (id === 'p3') {
-      changeView('project-p3');
-    } else if (id === 'p4') {
-      changeView('project-p4');
-    } else {
-      console.log(`Navigate to project ${id}`);
-      changeView('project-p1');
-    }
+    changeView(`project-${id}`);
   };
 
   const navigateToAllProjects = () => {
@@ -106,28 +97,24 @@ const App: React.FC = () => {
   };
 
   // Render content based on view
+  const projectViewMap: Record<string, React.ReactNode> = {
+    'all-projects': <AllProjects onProjectClick={navigateToProject} onBack={handleBack}/>,
+    'project-p1': <KubernetesProject onBack={handleBack} />,
+    'project-p2': <SparkProject onBack={handleBack} />,
+    'project-p3': <ElasticProject onBack={handleBack} />,
+    'project-p4': <PlaywrightProject onBack={handleBack} />,
+    'project-p5': <AirflowProject onBack={handleBack} />,
+  };
+  
   const renderMainContent = () => {
-    switch (currentView) {
-      case 'all-projects':
-        return <AllProjects onProjectClick={navigateToProject} onBack={handleBack} />;
-      case 'project-p1':
-        return <KubernetesProject onBack={handleBack} />;
-      case 'project-p2':
-        return <SparkProject onBack={handleBack} />;
-      case 'project-p3':
-        return <SparkProject onBack={handleBack} />;
-      case 'project-p4':
-        return <SparkProject onBack={handleBack} />;
-      default:
-        return (
-          <>
-            <Hero />
-            <Projects onProjectClick={navigateToProject} onViewAllClick={navigateToAllProjects} />
-            <Experience />
-            <Skills />
-          </>
-        );
-    }
+    return projectViewMap[currentView] ?? (
+      <>
+        <Hero />
+        <Projects onProjectClick={navigateToProject} onViewAllClick={navigateToAllProjects} />
+        <Experience />
+        <Skills />
+      </>
+    );
   };
 
   return (

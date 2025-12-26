@@ -2,9 +2,9 @@ import { Experience, Project, SkillCategory } from "./types";
 
 export const RESUME_DATA = {
   name: "Son Nguyen",
-  title: "Senior Data Scientist & Data Engineer",
+  title: "Hello, world!",
   summary: "Specializing in building scalable ML pipelines and production-grade LLM applications. 5 years of experience bridging the gap between statistical research and distributed systems engineering.",
-  about: "I am a Senior Data Scientist & Engineer bridging the gap between rigorous statistics and distributed systems. With 5 years of experience. Passionate about transforming raw data into actionable insights, I thrive on solving complex problems with innovative solutions.",
+  about: "“Without data, you're just another person with an opinion.” - W. Edwards Deming.",
   avatarUrl: "/profile.jpeg",
   location: "San Francisco, CA",
   email: "ncson.data@gmail.com",
@@ -41,43 +41,48 @@ export const EXPERIENCES: Experience[] = [
 export const PROJECTS: Project[] = [
   {
     id: "p1",
-    title: "Production-Ready Kafka on Kubernetes",
-    category: "Data Engineering",
-    description: "A transformer-based model to predict renewable energy output for smart grids. Utilized temporal fusion transformers.",
-    tech: ["PyTorch", "Python", "GCP", "FastAPI"],
-    imagePlaceholder: "./projects/kubernetes/card.jpeg"
+    title: "Autoscaling Kafka Consumers on Kubernetes using Confluent and KEDA",
+    category: "Engineering",
+    description: "Many modern data platforms rely on Kafka to move events between services in real time. As traffic grows or becomes bursty, Kafka consumers can easily fall behind, creating backlogs that impact downstream systems.",
+    tech: ["Kubernetes", "Confluent", "Kafka", "KEDA", "Autoscaling"],
+    imagePlaceholder: "./projects/kubernetes/card.jpeg",
+    url: "https://medium.com/@ncsonn/autoscaling-kafka-consumers-on-kubernetes-using-confluent-and-keda-476b47faf736"
   },
   {
     id: "p2",
     title: "Interactive Spark Environment with Livy and Jupyter Notebook",
-    category: "Data Engineering",
-    description: "Interactive Apache Spark Environment with Livy and Jupyter Notebook",
+    category: "Engineering",
+    description: "Working with large datasets often requires both distributed processing power and an interactive development environment.",
     tech: ["LangChain", "OpenAI API", "Pinecone", "React"],
-    imagePlaceholder: "./projects/spark/card.jpeg"
+    imagePlaceholder: "./projects/spark/card.jpeg",
+    url: "https://medium.com/@ncsonn/interactive-apache-spark-environment-with-livy-and-jupyter-notebook-7f3f3f6f4e2"
   },
   {
     id: "p3",
     title: "Complete ELK Stack Setup: Elasticsearch, Logstash, and Kibana",
-    category: "Data Engineering",
-    description: "Interactive 3D visualization of high-dimensional customer segments using WebGL and t-SNE.",
-    tech: ["Three.js", "D3.js", "Python", "Flask"],
-    imagePlaceholder: "./projects/elasticsearch/card.jpeg"
+    category: "Engineering",
+    description: "Monitoring logs efficiently is crucial for maintaining system reliability and performance, and the ELK stack (Elasticsearch, Logstash, and Kibana) provides a powerful solution for centralized log management.",
+    tech: ["Elasticsearch", "Logstash", "Kibana", "Docker"],
+    imagePlaceholder: "./projects/elasticsearch/card.jpeg",
+    url: "https://medium.com/@ncsonn/complete-elk-stack-setup-elasticsearch-logstash-and-kibana-6d3f5b3e4c2"
   },
   {
     id: "p4",
     title: "Dynamic Web Scraping with Python and Playwright",
-    category: "Data Engineering",
-    description: "Low-latency feature store and inference engine for detecting credit card fraud in under 200ms.",
+    category: "Engineering",
+    description: "Playwright is a popular browser automation toolkit that can be used in web scraping to scrape dynamic web content or web apps.",
     tech: ["Redis", "Kafka", "Spark Streaming", "Scala"],
-    imagePlaceholder: "./projects/data-scraping/card.jpeg"
+    imagePlaceholder: "./projects/data-scraping/card.jpeg",
+    url: "https://medium.com/@ncsonn/dynamic-web-scraping-with-python-and-playwright-8f3e5b2e4d1"
   },
   {
     id: "p5",
     title: "Simple Apache Airflow deployment with Docker",
-    category: "Data Engineering",
-    description: "Simple Apache Airflow deployment with Docker",
+    category: "Engineering",
+    description: "Apache Airflow is an open-source platform for developing, scheduling, and monitoring batch-oriented workflows.",
     tech: ["Redis", "Kafka", "Spark Streaming", "Scala"],
-    imagePlaceholder: "./projects/airflow/card.jpeg"
+    imagePlaceholder: "./projects/airflow/card.jpeg",
+    url: "https://medium.com/@ncsonn/simple-apache-airflow-deployment-with-docker-4f2e5b1e3c0"
   }
 ];
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import { RESUME_DATA } from '../constants';
+import Typewriter from 'typewriter-effect';
 
 const Hero: React.FC = () => {
   return (
@@ -13,10 +14,30 @@ const Hero: React.FC = () => {
             {RESUME_DATA.title}
           </h2>
           
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-semibold tracking-tighter text-apple-dark leading-[0.95]">
-            Turning raw data <br />
-            into <span className="text-gray-400">clarity.</span>
+          <h1 className="text-5xl md:text-7xl lg:text-7xl font-semibold tracking-tighter text-apple-dark leading-[0.95]">
+            I'm {RESUME_DATA.name}
           </h1>
+          
+          <div className="text-2xl md:text-4xl text-apple-subtext leading-relaxed font-light flex flex-wrap items-center gap-x-3">
+            <span>A curious</span>
+            <span className="text-apple-dark font-medium">
+              <Typewriter
+                options={{
+                  strings: [
+                    "Data Scientist",
+                    "Data Engineer",
+                    "AI & Machine Learning Engineer",
+                    "Data Analyst",
+                  ],
+                  autoStart: true,
+                  loop: true,
+                  loopCount: Infinity,
+                  deleteSpeed: "natural",
+                  pauseFor: 1500,
+                }}
+              />
+            </span>
+          </div>
           
           <p className="max-w-xl text-lg md:text-xl text-apple-subtext leading-relaxed font-light">
             {RESUME_DATA.summary}

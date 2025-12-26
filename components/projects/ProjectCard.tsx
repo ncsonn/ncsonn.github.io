@@ -35,7 +35,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick, className =
         </p>
         
         <div className="mt-auto flex items-center text-sm font-medium text-apple-dark group-hover:text-apple-blue transition-colors">
-          Read more
+          View project
           <svg 
             className="w-4 h-4 ml-2 transform transition-transform duration-300 group-hover:translate-x-1" 
             fill="none" 
