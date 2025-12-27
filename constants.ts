@@ -1,3 +1,4 @@
+import { url } from "inspector";
 import { Experience, Project, SkillCategory } from "./types";
 
 export const RESUME_DATA = {
@@ -17,12 +18,12 @@ export const EXPERIENCES: Experience[] = [
   {
     id: "1",
     role: "Data Engineer",
-    company: "TechFlow Systems",
+    company: "Visily",
     period: "2023 - Present",
     description: [
-      "Architected a real-time event processing engine using Kafka and Flink, reducing data latency by 94%.",
-      "Led the migration of 500TB data warehouse to Snowflake, optimizing query costs by 30%.",
-      "Deployed custom LLM agents for internal customer support using LangChain and Kubernetes."
+      // "Architected a real-time event processing engine using Kafka and Flink, reducing data latency by 94%.",
+      // "Led the migration of 500TB data warehouse to Snowflake, optimizing query costs by 30%.",
+      // "Deployed custom LLM agents for internal customer support using LangChain and Kubernetes."
     ]
   },
   {
@@ -31,11 +32,11 @@ export const EXPERIENCES: Experience[] = [
     company: "VieON",
     period: "2021 - 2023",
     description: [
-      "Developed a churn prediction model reaching 89% AUC, saving the company $2M annually.",
-      "Built an automated A/B testing framework used by 15+ product teams.",
-      "Collaborated with engineering to containerize models using Docker for seamless production inference."
+      // "Developed a churn prediction model reaching 89% AUC, saving the company $2M annually.",
+      // "Built an automated A/B testing framework used by 15+ product teams.",
+      // "Collaborated with engineering to containerize models using Docker for seamless production inference."
     ]
-  }
+  },
 ];
 
 export const PROJECTS: Project[] = [
@@ -64,7 +65,7 @@ export const PROJECTS: Project[] = [
     description: "Monitoring logs efficiently is crucial for maintaining system reliability and performance, and the ELK stack (Elasticsearch, Logstash, and Kibana) provides a powerful solution for centralized log management.",
     tech: ["Elasticsearch", "Logstash", "Kibana", "Docker"],
     imagePlaceholder: "./projects/elasticsearch/card.jpeg",
-    url: "https://medium.com/@ncsonn/complete-elk-stack-setup-elasticsearch-logstash-and-kibana-6d3f5b3e4c2"
+    url: "https://medium.com/@ncsonn/elasticsearch-logstash-kibana-elk-stack-with-docker-compose-a-complete-setup-guide-db8bfeebda7a"
   },
   {
     id: "p4",
@@ -73,16 +74,16 @@ export const PROJECTS: Project[] = [
     description: "Playwright is a popular browser automation toolkit that can be used in web scraping to scrape dynamic web content or web apps.",
     tech: ["Redis", "Kafka", "Spark Streaming", "Scala"],
     imagePlaceholder: "./projects/data-scraping/card.jpeg",
-    url: "https://medium.com/@ncsonn/dynamic-web-scraping-with-python-and-playwright-8f3e5b2e4d1"
+    url: "https://medium.com/@ncsonn/dynamic-web-scraping-with-python-and-playwright-781da227e91b"
   },
   {
     id: "p5",
     title: "Simple Apache Airflow deployment with Docker",
     category: "Engineering",
-    description: "Apache Airflow is an open-source platform for developing, scheduling, and monitoring batch-oriented workflows.",
+    description: "Apache Airflow is an open-source platform for developing, scheduling, and monitoring batch-oriented workflows. Airflow is deployable in many ways, varying from a single process on your laptop to a distributed setup to support even the biggest workflows. In this guide, we’ll walk through a practical approach to quickly deploying Apache Airflow using Docker.",
     tech: ["Redis", "Kafka", "Spark Streaming", "Scala"],
     imagePlaceholder: "./projects/airflow/card.jpeg",
-    url: "https://medium.com/@ncsonn/simple-apache-airflow-deployment-with-docker-4f2e5b1e3c0"
+    url: "https://medium.com/@ncsonn/deploying-apache-airflow-with-docker-bc82fffab6fe"
   }
 ];
 

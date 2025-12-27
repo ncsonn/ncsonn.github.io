@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react';
+import { PROJECTS } from '@/constants';
 
 interface AirflowProjectProps {
   onBack: () => void;
 }
 
 const AirflowProject: React.FC<AirflowProjectProps> = ({ onBack }) => {
+  const project = PROJECTS.find(p => p.id === 'p5');
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -25,10 +27,10 @@ const AirflowProject: React.FC<AirflowProjectProps> = ({ onBack }) => {
           {/* Header */}
           <header className="mb-10">
             <h1 className="text-3xl md:text-5xl font-semibold tracking-tighter text-apple-dark leading-[1.1] mb-6">
-              Interactive Apache Spark Environment with Livy and Jupyter Notebook
+              {project?.title}
             </h1>
             <p className="text-m md:text-m text-apple-subtext leading-relaxed font-light italic mb-8">
-              Working with large datasets often requires both distributed processing power and an interactive development environment. This project sets up a containerized Spark cluster with one master node and multiple worker nodes, allowing you to scale processing across machines. It includes Apache Livy, which provides a REST API for submitting Spark jobs, and Jupyter Notebook, which offers a user-friendly interface for writing and running code. This setup makes it easier to work with Spark by providing a flexible and reproducible environment for data exploration, workflow testing, and distributed application development.
+              {project?.description}
             </p>
 
             {/* Author / Metadata Row */}
@@ -38,7 +40,7 @@ const AirflowProject: React.FC<AirflowProjectProps> = ({ onBack }) => {
                </div>
               <div className="flex flex-col">
                  <span className="text-sm font-medium text-apple-dark">Son Nguyen</span>
-                 <span className="text-sm text-apple-subtext">Jul 2025 · 7 min read</span>
+                 <span className="text-sm text-apple-subtext">Mar 2025 · 3 min read</span>
               </div>
             </div>
           </header>
@@ -47,8 +49,8 @@ const AirflowProject: React.FC<AirflowProjectProps> = ({ onBack }) => {
           <figure className="mb-10">
             <div className="aspect-video overflow-hidden relative">
                <img 
-                src="./projects/spark/logo.png" 
-                alt="Apache Spark" 
+                src="./projects/airflow/logo.png" 
+                alt="Apache Airflow" 
                 className="w-full object-cover"
               />
             </div>
@@ -58,30 +60,21 @@ const AirflowProject: React.FC<AirflowProjectProps> = ({ onBack }) => {
           <div className="space-y-8">
 
             <section>
-              <h2 className="text-2xl font-semibold text-apple-dark mb-8 tracking-tight">Components Overview</h2>
+              <h2 className="text-2xl font-semibold text-apple-dark mb-8 tracking-tight">Why Apache Airflow with Docker?</h2>
               <p className="text-m leading-8 text-apple-dark mb-8">
-              The architecture consists of a Spark master node that coordinates tasks and manages cluster resources, along with one or more worker nodes that execute the distributed computations. Apache Livy serves as a REST interface to submit and manage Spark jobs remotely, while the Jupyter Notebook server can act as the development front end or be connected to a preferred IDE such as VS Code.
-              </p>
-              <figure className="mb-8">
-                <div className="bg-apple-gray overflow-hidden relative">
-                  <img 
-                    src="./projects/spark/fig1.png" 
-                    alt="EcoStream Dashboard" 
-                    className="w-full object-cover"
-                  />
-                </div>
-                <figcaption className="text-center text-xs font-medium text-apple-subtext mt-4">
-                  Figure 1: Project Architecture
-                </figcaption>
-              </figure>
-              <p className="text-m leading-8 text-apple-dark mb-8">
-              Functionally, this setup resembles cloud-based platforms like AWS EMR (Elastic MapReduce) or Databricks. AWS EMR is a cloud service for running big data frameworks like Spark and Hadoop, integration with AWS tools, and EMR Notebooks for interactive Spark development. Databricks is a unified advenced analytics platform built on Spark, also providing Databricks Notebooks to write and run code, visualize data, collaborate in real time, and manage Spark jobs in cloud-based environment. This project setup offers similar core capabilities, with interactive notebooks (via Jupyter), distributed Spark processing, and job submission through Apache Livy, making it a lightweight open-source alternative to these managed platforms.
+                Airflow allows you to define, schedule, and monitor workflows as Directed Acyclic Graphs (DAGs). Using Docker for deployment provides:
+                <ul className="list-disc list-inside mt-4">
+                  <li><b>Portability:</b> Consistent environments across development, testing, and production.</li>
+                  <li><b>Simplified Dependencies:</b> Avoids system-wide package conflicts.</li>
+                  <li><b>Scalability:</b> Easily integrates with Docker Compose or Kubernetes.</li>
+                  <li><b>Rapid Setup:</b> Pre-configured containers reduce setup time.</li>
+                </ul>
               </p>
             </section>
 
             <div className="mt-auto flex items-center text-l font-bold text-apple-dark group-hover:text-apple-blue transition-colors">
               <a 
-                href="https://medium.com/@ncsonn/interactive-apache-spark-environment-with-livy-and-jupyter-notebook-15937e00d763"
+                href={project?.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group flex items-center justify-between py-5 border-b border-white/10 hover:border-white/30 transition-all"

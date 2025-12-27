@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react';
+import { PROJECTS } from '@/constants';
 
 interface ElasticProjectProps {
   onBack: () => void;
 }
 
 const ElasticProject: React.FC<ElasticProjectProps> = ({ onBack }) => {
+  const project = PROJECTS.find(p => p.id === 'p3');
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -25,10 +27,10 @@ const ElasticProject: React.FC<ElasticProjectProps> = ({ onBack }) => {
           {/* Header */}
           <header className="mb-10">
             <h1 className="text-3xl md:text-5xl font-semibold tracking-tighter text-apple-dark leading-[1.1] mb-6">
-              Interactive Apache Spark Environment with Livy and Jupyter Notebook
+              {project?.title}
             </h1>
             <p className="text-m md:text-m text-apple-subtext leading-relaxed font-light italic mb-8">
-              Working with large datasets often requires both distributed processing power and an interactive development environment. This project sets up a containerized Spark cluster with one master node and multiple worker nodes, allowing you to scale processing across machines. It includes Apache Livy, which provides a REST API for submitting Spark jobs, and Jupyter Notebook, which offers a user-friendly interface for writing and running code. This setup makes it easier to work with Spark by providing a flexible and reproducible environment for data exploration, workflow testing, and distributed application development.
+            Monitoring logs efficiently is crucial for maintaining system reliability and performance, and the ELK stack (Elasticsearch, Logstash, and Kibana) provides a powerful solution for centralized log management. Elasticsearch enables fast searching and indexing, Logstash processes and transforms log data, and Kibana offers intuitive visualization and monitoring tools. In this guide, we’ll set up the ELK stack for log monitoring and test it using a basic Python script to show how logs can be collected and analyzed in a real-world scenario.
             </p>
 
             {/* Author / Metadata Row */}
@@ -38,7 +40,7 @@ const ElasticProject: React.FC<ElasticProjectProps> = ({ onBack }) => {
                </div>
               <div className="flex flex-col">
                  <span className="text-sm font-medium text-apple-dark">Son Nguyen</span>
-                 <span className="text-sm text-apple-subtext">Jul 2025 · 7 min read</span>
+                 <span className="text-sm text-apple-subtext">Apr 2025 · 6 min read</span>
               </div>
             </div>
           </header>
@@ -47,7 +49,7 @@ const ElasticProject: React.FC<ElasticProjectProps> = ({ onBack }) => {
           <figure className="mb-10">
             <div className="aspect-video overflow-hidden relative">
                <img 
-                src="./projects/spark/logo.png" 
+                src="./projects/elasticsearch/logo.png"
                 alt="Apache Spark" 
                 className="w-full object-cover"
               />
@@ -60,12 +62,12 @@ const ElasticProject: React.FC<ElasticProjectProps> = ({ onBack }) => {
             <section>
               <h2 className="text-2xl font-semibold text-apple-dark mb-8 tracking-tight">Components Overview</h2>
               <p className="text-m leading-8 text-apple-dark mb-8">
-              The architecture consists of a Spark master node that coordinates tasks and manages cluster resources, along with one or more worker nodes that execute the distributed computations. Apache Livy serves as a REST interface to submit and manage Spark jobs remotely, while the Jupyter Notebook server can act as the development front end or be connected to a preferred IDE such as VS Code.
+              The ELK stack — comprising Elasticsearch, Logstash, and Kibana — is a powerful set of tools widely used for log monitoring, analysis, and visualization. It provides a centralized logging solution that helps organizations collect, process, and analyze log data from various sources, making troubleshooting and performance monitoring more efficient.
               </p>
               <figure className="mb-8">
                 <div className="bg-apple-gray overflow-hidden relative">
                   <img 
-                    src="./projects/spark/fig1.png" 
+                    src="./projects/elasticsearch/components-overview.png" 
                     alt="EcoStream Dashboard" 
                     className="w-full object-cover"
                   />
@@ -75,13 +77,19 @@ const ElasticProject: React.FC<ElasticProjectProps> = ({ onBack }) => {
                 </figcaption>
               </figure>
               <p className="text-m leading-8 text-apple-dark mb-8">
-              Functionally, this setup resembles cloud-based platforms like AWS EMR (Elastic MapReduce) or Databricks. AWS EMR is a cloud service for running big data frameworks like Spark and Hadoop, integration with AWS tools, and EMR Notebooks for interactive Spark development. Databricks is a unified advenced analytics platform built on Spark, also providing Databricks Notebooks to write and run code, visualize data, collaborate in real time, and manage Spark jobs in cloud-based environment. This project setup offers similar core capabilities, with interactive notebooks (via Jupyter), distributed Spark processing, and job submission through Apache Livy, making it a lightweight open-source alternative to these managed platforms.
+                <b>Elasticsearch</b> is a fast, open-source search engine built on Apache Lucene. It indexes and searches large volumes of data in near real-time. With support for full-text search, structured queries, and aggregations, it’s ideal for log data. Its distributed design allows for easy scaling, high availability, and fault tolerance.
+              </p>
+              <p className="text-m leading-8 text-apple-dark mb-8">
+                <b>Kibana</b> is the GUI for visualizing data in Elasticsearch. It offers dashboards, real-time search, and customizable charts. Features like alerting, anomaly detection, and security monitoring make it a powerful tool for observability and quick issue resolution.
+              </p>
+              <p className="text-m leading-8 text-apple-dark mb-8">
+                <b>Logstash</b> is a log processing tool that collects, transforms, and sends data to Elasticsearch. It supports multiple input/output plugins and provides filters to parse and enrich logs, ensuring structured, high-quality data.
               </p>
             </section>
 
             <div className="mt-auto flex items-center text-l font-bold text-apple-dark group-hover:text-apple-blue transition-colors">
               <a 
-                href="https://medium.com/@ncsonn/interactive-apache-spark-environment-with-livy-and-jupyter-notebook-15937e00d763"
+                href={project?.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group flex items-center justify-between py-5 border-b border-white/10 hover:border-white/30 transition-all"
