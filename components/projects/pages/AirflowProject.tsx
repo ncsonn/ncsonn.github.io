@@ -49,7 +49,7 @@ const AirflowProject: React.FC<AirflowProjectProps> = ({ onBack }) => {
           <figure className="mb-10">
             <div className="aspect-video overflow-hidden relative">
                <img 
-                src="./projects/airflow/logo.png" 
+                src="/projects/airflow/logo.png" 
                 alt="Apache Airflow" 
                 className="w-full object-cover"
               />

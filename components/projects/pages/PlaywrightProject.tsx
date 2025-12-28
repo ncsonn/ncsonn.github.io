@@ -49,7 +49,7 @@ const PlaywrightProject: React.FC<PlaywrightProjectProps> = ({ onBack }) => {
           <figure className="mb-10">
             <div className="aspect-video overflow-hidden relative">
                <img 
-                src="./projects/data-scraping/logo.webp"
+                src="/projects/data-scraping/logo.webp"
                 alt="Playwright" 
                 className="w-full object-cover"
               />

@@ -47,7 +47,7 @@ const SparkProject: React.FC<SparkProjectProps> = ({ onBack }) => {
           <figure className="mb-10">
             <div className="aspect-video overflow-hidden relative">
                <img 
-                src="./projects/spark/logo.png" 
+                src="/projects/spark/logo.png" 
                 alt="Apache Spark" 
                 className="w-full object-cover"
               />
@@ -65,7 +65,7 @@ const SparkProject: React.FC<SparkProjectProps> = ({ onBack }) => {
               <figure className="mb-8">
                 <div className="bg-apple-gray overflow-hidden relative">
                   <img 
-                    src="./projects/spark/fig1.png" 
+                    src="/projects/spark/fig1.png" 
                     alt="EcoStream Dashboard" 
                     className="w-full object-cover"
                   />

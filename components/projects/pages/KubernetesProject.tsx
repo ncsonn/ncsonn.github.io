@@ -49,7 +49,7 @@ const KubernetesProject: React.FC<KubernetesProjectProps> = ({ onBack }) => {
           <figure className="mb-10">
             <div className="aspect-video overflow-hidden relative">
                <img 
-                src="./projects/kubernetes/logo.png" 
+                src="/projects/kubernetes/logo.png" 
                 alt="Confluent for Kubernetes and KEDA" 
                 className="w-full object-cover"
               />
@@ -63,13 +63,13 @@ const KubernetesProject: React.FC<KubernetesProjectProps> = ({ onBack }) => {
               <h2 className="text-2xl font-semibold text-apple-dark mb-8 tracking-tight">Components Overview</h2>
               <p className="text-m leading-8 text-apple-dark mb-8">
                 <b>Confluent for Kubernetes</b> is a Kubernetes-native platform for deploying and operating Apache Kafka and its ecosystem in a consistent, production-ready manner. It is built around the Confluent Operator, which manages the full lifecycle of Kafka components, including:
-                <ul className="list-disc list-inside mt-4">
-                  <li>Kafka brokers and controllers</li>
-                  <li>ZooKeeper or KRaft-based metadata management</li>
-                  <li>Control Center</li>
-                  <li>(Optional) Schema Registry, Kafka Connect, ksqlDB and REST Proxy</li>
-                </ul>
               </p>
+              <ul className="list-disc list-inside mt-4">
+                <li>Kafka brokers and controllers</li>
+                <li>ZooKeeper or KRaft-based metadata management</li>
+                <li>Control Center</li>
+                <li>(Optional) Schema Registry, Kafka Connect, ksqlDB and REST Proxy</li>
+              </ul>
               <p className="text-m leading-8 text-apple-dark mb-8">
                 <b>KEDA</b> is an open-source component that extends Kubernetes autoscaling capabilities beyond CPU and memory metrics. It enables workloads to scale based on event sources such as message queues, streams, or external systems. For Kafka workloads, KEDA can monitor consumer group lag and expose it as an external metric to Kubernetes. This makes Kafka-aware autoscaling possible without embedding scaling logic directly into application code.
               </p>
