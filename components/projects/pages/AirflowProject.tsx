@@ -61,15 +61,15 @@ const AirflowProject: React.FC<AirflowProjectProps> = ({ onBack }) => {
 
             <section>
               <h2 className="text-2xl font-semibold text-apple-dark mb-8 tracking-tight">Why Apache Airflow with Docker?</h2>
-              <p className="text-m leading-8 text-apple-dark mb-8">
+              <p className="text-m leading-8 text-apple-dark mb-4">
                 Airflow allows you to define, schedule, and monitor workflows as Directed Acyclic Graphs (DAGs). Using Docker for deployment provides:
-                <ul className="list-disc list-inside mt-4">
-                  <li><b>Portability:</b> Consistent environments across development, testing, and production.</li>
-                  <li><b>Simplified Dependencies:</b> Avoids system-wide package conflicts.</li>
-                  <li><b>Scalability:</b> Easily integrates with Docker Compose or Kubernetes.</li>
-                  <li><b>Rapid Setup:</b> Pre-configured containers reduce setup time.</li>
-                </ul>
               </p>
+              <ul className="list-disc list-inside mb-8">
+                <li><b>Portability:</b> Consistent environments across development, testing, and production.</li>
+                <li><b>Simplified Dependencies:</b> Avoids system-wide package conflicts.</li>
+                <li><b>Scalability:</b> Easily integrates with Docker Compose or Kubernetes.</li>
+                <li><b>Rapid Setup:</b> Pre-configured containers reduce setup time.</li>
+              </ul>
             </section>
 
             <div className="mt-auto flex items-center text-l font-bold text-apple-dark group-hover:text-apple-blue transition-colors">

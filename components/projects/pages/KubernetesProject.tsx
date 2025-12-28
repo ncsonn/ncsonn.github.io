@@ -61,10 +61,10 @@ const KubernetesProject: React.FC<KubernetesProjectProps> = ({ onBack }) => {
 
             <section>
               <h2 className="text-2xl font-semibold text-apple-dark mb-8 tracking-tight">Components Overview</h2>
-              <p className="text-m leading-8 text-apple-dark mb-8">
+              <p className="text-m leading-8 text-apple-dark mb-4">
                 <b>Confluent for Kubernetes</b> is a Kubernetes-native platform for deploying and operating Apache Kafka and its ecosystem in a consistent, production-ready manner. It is built around the Confluent Operator, which manages the full lifecycle of Kafka components, including:
               </p>
-              <ul className="list-disc list-inside mt-4">
+              <ul className="list-disc list-inside mb-8">
                 <li>Kafka brokers and controllers</li>
                 <li>ZooKeeper or KRaft-based metadata management</li>
                 <li>Control Center</li>
