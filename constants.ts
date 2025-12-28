@@ -1,5 +1,11 @@
-import { url } from "inspector";
 import { Experience, Project, SkillCategory } from "./types";
+import {
+  KubernetesProject,
+  SparkProject,
+  ElasticProject,
+  PlaywrightProject,
+  AirflowProject,
+} from './components/projects/pages';
 
 export const RESUME_DATA = {
   name: "Son Nguyen",
@@ -39,52 +45,70 @@ export const EXPERIENCES: Experience[] = [
   },
 ];
 
+const slugify = (title: string) =>
+  title
+    .toLowerCase()
+    .replace(/[^\w]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+
+type DefineProjectInput = Omit<Project, 'slug'>;
+
+const defineProject = (input: DefineProjectInput): Project => ({
+  ...input,
+  slug: slugify(input.title),
+});
+
 export const PROJECTS: Project[] = [
-  {
+  defineProject({
     id: "p1",
     title: "Autoscaling Kafka Consumers on Kubernetes using Confluent and KEDA",
     category: "Engineering",
     description: "Many modern data platforms rely on Kafka to move events between services in real time. As traffic grows or becomes bursty, Kafka consumers can easily fall behind, creating backlogs that impact downstream systems.",
     tech: ["Kubernetes", "Confluent", "Kafka", "KEDA", "Autoscaling"],
     imagePlaceholder: "./projects/kubernetes/card.jpeg",
-    url: "https://medium.com/@ncsonn/autoscaling-kafka-consumers-on-kubernetes-using-confluent-and-keda-476b47faf736"
-  },
-  {
+    url: "https://medium.com/@ncsonn/autoscaling-kafka-consumers-on-kubernetes-using-confluent-and-keda-476b47faf736",
+    Component: KubernetesProject
+  }),
+  defineProject({
     id: "p2",
     title: "Interactive Spark Environment with Livy and Jupyter Notebook",
     category: "Engineering",
     description: "Working with large datasets often requires both distributed processing power and an interactive development environment.",
     tech: ["LangChain", "OpenAI API", "Pinecone", "React"],
     imagePlaceholder: "./projects/spark/card.jpeg",
-    url: "https://medium.com/@ncsonn/interactive-apache-spark-environment-with-livy-and-jupyter-notebook-7f3f3f6f4e2"
-  },
-  {
+    url: "https://medium.com/@ncsonn/interactive-apache-spark-environment-with-livy-and-jupyter-notebook-7f3f3f6f4e2",
+    Component: SparkProject
+  }),
+  defineProject({
     id: "p3",
     title: "Complete ELK Stack Setup: Elasticsearch, Logstash, and Kibana",
     category: "Engineering",
     description: "Monitoring logs efficiently is crucial for maintaining system reliability and performance, and the ELK stack (Elasticsearch, Logstash, and Kibana) provides a powerful solution for centralized log management.",
     tech: ["Elasticsearch", "Logstash", "Kibana", "Docker"],
     imagePlaceholder: "./projects/elasticsearch/card.jpeg",
-    url: "https://medium.com/@ncsonn/elasticsearch-logstash-kibana-elk-stack-with-docker-compose-a-complete-setup-guide-db8bfeebda7a"
-  },
-  {
+    url: "https://medium.com/@ncsonn/elasticsearch-logstash-kibana-elk-stack-with-docker-compose-a-complete-setup-guide-db8bfeebda7a",
+    Component: ElasticProject
+  }),
+  defineProject({
     id: "p4",
     title: "Dynamic Web Scraping with Python and Playwright",
     category: "Engineering",
     description: "Playwright is a popular browser automation toolkit that can be used in web scraping to scrape dynamic web content or web apps.",
     tech: ["Redis", "Kafka", "Spark Streaming", "Scala"],
     imagePlaceholder: "./projects/data-scraping/card.jpeg",
-    url: "https://medium.com/@ncsonn/dynamic-web-scraping-with-python-and-playwright-781da227e91b"
-  },
-  {
+    url: "https://medium.com/@ncsonn/dynamic-web-scraping-with-python-and-playwright-781da227e91b",
+    Component: PlaywrightProject
+  }),
+  defineProject({
     id: "p5",
     title: "Simple Apache Airflow deployment with Docker",
     category: "Engineering",
     description: "Apache Airflow is an open-source platform for developing, scheduling, and monitoring batch-oriented workflows. Airflow is deployable in many ways, varying from a single process on your laptop to a distributed setup to support even the biggest workflows. In this guide, we’ll walk through a practical approach to quickly deploying Apache Airflow using Docker.",
     tech: ["Redis", "Kafka", "Spark Streaming", "Scala"],
     imagePlaceholder: "./projects/airflow/card.jpeg",
-    url: "https://medium.com/@ncsonn/deploying-apache-airflow-with-docker-bc82fffab6fe"
-  }
+    url: "https://medium.com/@ncsonn/deploying-apache-airflow-with-docker-bc82fffab6fe",
+    Component: AirflowProject
+  })
 ];
 
 export const SKILLS: SkillCategory[] = [

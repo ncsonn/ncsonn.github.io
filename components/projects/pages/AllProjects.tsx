@@ -98,7 +98,7 @@ const AllProjects: React.FC<AllProjectsProps> = ({ onProjectClick, onBack }) => 
             <ProjectCard 
               key={project.id} 
               project={project} 
-              onClick={() => onProjectClick(project.id)}
+              onClick={() => onProjectClick(project.slug)}
               className="w-full"
             />
           ))}

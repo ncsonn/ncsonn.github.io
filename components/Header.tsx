@@ -47,8 +47,9 @@ const Header: React.FC<HeaderProps> = ({ onNavClick, onLetsTalk }) => {
         </a>
         
         <nav className="hidden md:flex space-x-8 text-sm font-medium text-apple-subtext">
+          <a href="#" onClick={(e) => handleLinkClick(e, 'home')} className="hover:text-apple-dark transition-colors">Home</a>
           <a href="#projects" onClick={(e) => handleLinkClick(e, 'projects')} className="hover:text-apple-dark transition-colors">Projects</a>
-          <a href="#about" onClick={(e) => handleLinkClick(e, 'about')} className="hover:text-apple-dark transition-colors">About</a>
+          <a href="#about" onClick={(e) => handleLinkClick(e, 'about')} className="hover:text-apple-dark transition-colors">Experience</a>
           <a href="#skills" onClick={(e) => handleLinkClick(e, 'skills')} className="hover:text-apple-dark transition-colors">Skills</a>
           <a href="#contact" onClick={(e) => handleLinkClick(e, 'contact')} className="hover:text-apple-dark transition-colors">Contact</a>
         </nav>

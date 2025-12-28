@@ -108,7 +108,7 @@ const Projects: React.FC<ProjectsProps> = ({ onProjectClick, onViewAllClick }) =
                  <ProjectCard 
                     key={project.id} 
                     project={project} 
-                    onClick={() => onProjectClick(project.id)}
+                    onClick={() => onProjectClick(project.slug)}
                     className="flex-shrink-0 w-[85vw] md:w-[360px] snap-center"
                  />
                ))}

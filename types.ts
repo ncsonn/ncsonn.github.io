@@ -1,3 +1,5 @@
+import React from 'react';
+
 export interface Project {
   id: string;
   title: string;
@@ -7,6 +9,8 @@ export interface Project {
   link?: string;
   imagePlaceholder?: string;
   url: string;
+  slug: string;
+  Component: React.FC<{ onBack: () => void }>;
 }
 
 export interface Experience {

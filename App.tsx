@@ -16,15 +16,11 @@ import Experience from './components/Experience';
 import Skills from './components/Skills';
 import Footer from './components/Footer';
 import ContactForm from './components/ContactForm';
-import KubernetesProject from './components/projects/pages/KubernetesProject';
-import SparkProject from './components/projects/pages/SparkProject';
-import ElasticProject from './components/projects/pages/ElasticProject';
-import PlaywrightProject from './components/projects/pages/PlaywrightProject';
-import AirflowProject from './components/projects/pages/AirflowProject';
 import AllProjects from './components/projects/pages/AllProjects';
+import { PROJECTS } from './constants';
 
 const HomePage: React.FC<{
-  onProjectClick: (id: string) => void;
+  onProjectClick: (slug: string) => void;
   onViewAllClick: () => void;
 }> = ({ onProjectClick, onViewAllClick }) => (
   <>
@@ -39,24 +35,18 @@ const HomePage: React.FC<{
 );
 
 const ProjectRouter: React.FC = () => {
-  const { id } = useParams<{ id: string }>();
+  const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
-  const onBack = () => navigate(-1);
+  const project = PROJECTS.find(p => p.slug === slug);
 
-  switch (id) {
-    case 'p1':
-      return <KubernetesProject onBack={onBack} />;
-    case 'p2':
-      return <SparkProject onBack={onBack} />;
-    case 'p3':
-      return <ElasticProject onBack={onBack} />;
-    case 'p4':
-      return <PlaywrightProject onBack={onBack} />;
-    case 'p5':
-      return <AirflowProject onBack={onBack} />;
-    default:
-      return <Navigate to="/projects" replace />;
+  if (!project) {
+    return <Navigate to="/projects" replace />;
   }
+
+  const ProjectComponent = project.Component;
+  document.title = `Portfolio | ${project.title}`;
+
+  return <ProjectComponent onBack={() => navigate(-1)} />;
 };
 
 const AppLayout: React.FC = () => {
@@ -79,8 +69,8 @@ const AppLayout: React.FC = () => {
   }, [location.pathname]);
 
   // Navigation helpers
-  const navigateToProject = (id: string) => {
-    navigate(`/projects/${id}`);
+  const navigateToProject = (slug: string) => {
+    navigate(`/projects/${slug}`);
   };
 
   const navigateToAllProjects = () => {
@@ -113,7 +103,7 @@ const AppLayout: React.FC = () => {
         <Routes>
           <Route path="/" element={<HomePage onProjectClick={navigateToProject} onViewAllClick={navigateToAllProjects}/>}/>
           <Route path="/projects" element={<AllProjects onProjectClick={navigateToProject} onBack={() => navigate(-1)}/>}/>
-          <Route path="/projects/:id" element={<ProjectRouter />} />
+          <Route path="/projects/:slug" element={<ProjectRouter />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>
