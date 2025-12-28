@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useLayoutEffect } from 'react';
+import React, { useState, useLayoutEffect } from 'react';
 import {
-  BrowserRouter,
+  HashRouter,
   Routes,
   Route,
   useNavigate,
@@ -115,9 +115,9 @@ const AppLayout: React.FC = () => {
 };
 
 const App: React.FC = () => (
-  <BrowserRouter>
+  <HashRouter>
     <AppLayout />
-  </BrowserRouter>
+  </HashRouter>
 );
 
 export default App;
